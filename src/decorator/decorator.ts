@@ -20,15 +20,15 @@ class Tea extends Beverage {
 
 abstract class BeverageDecorator extends Beverage {
     public abstract getDescription(): string;
-}
+    protected wrappee: Beverage;
 
-class WithSugar extends BeverageDecorator {
-    private wrappee: Beverage;
     constructor(source: Beverage) {
         super();
         this.wrappee = source;
     }
+}
 
+class WithSugar extends BeverageDecorator {
     cost(): number {
         return this.wrappee.cost() + 10;
     }
@@ -38,7 +38,19 @@ class WithSugar extends BeverageDecorator {
     }
 }
 
+class WithMilk extends BeverageDecorator {
+    cost(): number {
+        return this.wrappee.cost() + 8;
+    }
+
+    getDescription(): string {
+        return `${this.wrappee.getDescription()} and milk`;
+    }
+
+}
+
 export {
     Tea,
-    WithSugar
+    WithSugar,
+    WithMilk
 };

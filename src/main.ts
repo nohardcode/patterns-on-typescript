@@ -1,5 +1,5 @@
 // import { ConcreteObservable, ConcreteObserverB, ConcreteObserverA } from './observer/observer';
-import { Tea, WithSugar } from './decorator/decorator';
+import { Tea, WithSugar, WithMilk } from './decorator/decorator';
 
 async function bootstrap(main: HTMLMainElement) {
     const module = await import(`./pages${location.pathname}.ts`);
@@ -28,5 +28,8 @@ let tea = new Tea();
 console.log(tea.getDescription());
 console.log(tea.cost());
 tea = new WithSugar(tea);
+console.log(tea.getDescription());
+console.log(tea.cost());
+tea = new WithMilk(tea);
 console.log(tea.getDescription());
 console.log(tea.cost());
