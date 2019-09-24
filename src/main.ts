@@ -1,4 +1,5 @@
-import ConcreteObservable from './observer/observer';
+// import { ConcreteObservable, ConcreteObserverB, ConcreteObserverA } from './observer/observer';
+import { Tea, WithSugar } from './decorator/decorator';
 
 async function bootstrap(main: HTMLMainElement) {
     const module = await import(`./pages${location.pathname}.ts`);
@@ -23,4 +24,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-const Observable = new ConcreteObservable();
+let tea = new Tea();
+console.log(tea.getDescription());
+console.log(tea.cost());
+tea = new WithSugar(tea);
+console.log(tea.getDescription());
+console.log(tea.cost());
