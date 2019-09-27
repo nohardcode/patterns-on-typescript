@@ -1,3 +1,5 @@
+import NskPizzaStore from './abstract-factory/NskPizzaStore';
+
 async function bootstrap(main: HTMLMainElement) {
     const module = await import(`./pages${location.pathname}.ts`);
     main.innerHTML = module.default;
@@ -20,3 +22,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 });
+
+const nskPizzaStore = new NskPizzaStore('Nsk Pizza Store');
+nskPizzaStore.orderPizza();
