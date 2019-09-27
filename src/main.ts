@@ -1,5 +1,3 @@
-import ConcreteObservable from './observer/observer';
-
 async function bootstrap(main: HTMLMainElement) {
     const module = await import(`./pages${location.pathname}.ts`);
     main.innerHTML = module.default;
@@ -22,5 +20,3 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     });
 });
-
-const Observable = new ConcreteObservable();
