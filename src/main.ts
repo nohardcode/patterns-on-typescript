@@ -1,4 +1,5 @@
-import ConcreteObservable from './observer/observer';
+// import ConcreteObservable from './observer/observer';
+import NskPizzaStore from './factory/NskPizzaStore';
 
 async function bootstrap(main: HTMLMainElement) {
     const module = await import(`./pages${location.pathname}.ts`);
@@ -23,4 +24,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-const Observable = new ConcreteObservable();
+// const Observable = new ConcreteObservable();
+
+const nskPizzaStore = new NskPizzaStore('Nsk Pizza Store');
+console.log(nskPizzaStore);
+console.log(nskPizzaStore.orderPizza());
